@@ -1,0 +1,18 @@
+//Ejercicio1
+class MarvelHeroes{
+  String? NombrePila;
+  String? NombrePersonaje;
+  
+  MarvelHeroes({required this.NombrePila, required this.NombrePersonaje});
+}
+
+void main() {
+  var heroe = MarvelHeroes(NombrePila : "Spiderman", NombrePersonaje : "Peter Parker");
+  
+  var heroeNom = heroe.NombrePersonaje;
+  var heroeApo = heroe.NombrePila;
+  
+  print("Hola mi nombre es ${heroeNom} pero me conocen como tu amigable vecino ${heroeApo}");
+  
+}
+

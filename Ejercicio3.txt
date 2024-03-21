@@ -1,0 +1,60 @@
+//Ejercicio3
+class DCHeroes {
+  String? _nombrePila;
+  String? _nombrePersonaje;
+
+  DCHeroes(String nombrePila, String nombrePersonaje)
+      : _nombrePila = nombrePila,
+        _nombrePersonaje = nombrePersonaje;
+
+  DCHeroes.fromDCJson(Map<String, dynamic> dcJson)
+      : _nombrePila = dcJson['nombrePila'],
+        _nombrePersonaje = dcJson['nombrePersonaje'] {
+    
+    if (_nombrePila == null) {
+      print("No tiene nombre");
+    }
+    if (_nombrePersonaje == null) {
+      print("No tiene alias");
+    }
+  }
+
+  void presentarse() {
+    String nombrePila = _nombrePila ?? "Sin nombre";
+    String nombrePersonaje = _nombrePersonaje ?? "Sin alias";
+
+    print('Hola, mi nombre es $nombrePila pero me conocen como $nombrePersonaje');
+  }
+}
+
+class MarvelHeroes{
+  String? NombrePila;
+  String? NombrePersonaje;
+  
+  MarvelHeroes(String nombrePila, String nombrePersonaje)
+      : NombrePila = nombrePila,
+        NombrePersonaje = nombrePersonaje;
+
+  void presentarse() {
+    String nombrePila = NombrePila ?? "Sin nombre";
+    String nombrePersonaje = NombrePersonaje ?? "Sin alias";
+
+    print("Hola mi nombre es $nombrePersonaje pero me conocen como tu amigable vecino $nombrePila");
+  }
+}
+
+void main() {
+  var batman = DCHeroes("Bruce Wayne", "Batman");
+  var superman = DCHeroes.fromDCJson({
+    "nombrePila": "Clark Kent",
+    "nombrePersonaje": "Superman",
+  });
+
+  var spiderman = MarvelHeroes("Peter Parker", "Spiderman");
+  var ironman = MarvelHeroes("Tony Stark", "Iron Man");
+
+  batman.presentarse();
+  superman.presentarse();
+  spiderman.presentarse();
+  ironman.presentarse();
+}

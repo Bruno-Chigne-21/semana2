@@ -1,0 +1,39 @@
+//ejercicio2
+class DCHeroes {
+  String? _nombrePila;
+  String? _nombrePersonaje;
+
+  DCHeroes({String? nombrePila, String? nombrePersonaje})
+      : _nombrePila = nombrePila,
+        _nombrePersonaje = nombrePersonaje;
+
+  DCHeroes.fromDCJson(Map<String, dynamic> dcJson)
+      : _nombrePila = dcJson['nombrePila'],
+        _nombrePersonaje = dcJson['nombrePersonaje'] {
+    
+    if (_nombrePila == null) {
+      print("No tiene nombre");
+    }
+    if (_nombrePersonaje == null) {
+      print("No tiene alias");
+    }
+  }
+
+  void presentarse() {
+    String nombrePila = _nombrePila ?? "Sin nombre";
+    String nombrePersonaje = _nombrePersonaje ?? "Sin alias";
+
+    print('Hola, mi nombre es $nombrePila pero me conocen como $nombrePersonaje');
+  }
+}
+
+void main() {
+  Map<String, dynamic> dcJson = {
+    "nombrePila": "Bruce Wayne", 
+    "nombrePersonaje": "Batman",
+  };
+  
+  var batman = DCHeroes.fromDCJson(dcJson);
+
+  batman.presentarse();
+}
